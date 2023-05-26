@@ -1,0 +1,42 @@
+AboutUs Activity
+    1. Hakkımda vizyon gibi özellikler eklenecek
+    2. ui tasarım
+AskQuestion Activity
+    1. ui tasarım
+Lessons Activity
+    1. ui tasarım
+Login Activity
+    1. ui tasarım
+Main Activity
+    1. ui tasarım
+Messages Activity
+    1. ui tasarım
+Notes Activity
+    1. ui tasarım
+OneLesson Activity
+    1. ui tasarım
+OneMessage Activity
+    1. öğretmenden gelen mesaj da gösterilecek
+    2. ui tasarım
+OneNote Activity
+    1. dosya görüntüleme
+    2. ui tasarım
+Profile Activity
+    1. ui tasarım
+Register Activity
+    1. ui tasarım
+Settings Activity
+    1. ui tasarım
+
+Profile Fragment
+    1. eksik bir şey yok belki ui tasarım geliştirilebilir.
+Photo Fragment
+    1. eksik bir şey yok belki ui tasarım geliştirilebilir.
+Notification Fragment
+    1. işaretleyip çıktığında onu orada kaydet. geri geldiğinde işaretleme de siliniyor.
+    2. duruma göre ui tasarım geliştirilebilir.
+Security Fragment
+    1. bu kısımda şifre ve eposta değiştirilebilir olacak.
+    2. duruma göre ui tasarım geliştirilebilir.
+
+

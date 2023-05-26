@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/home"
+        android:title="Ana Sayfa" />
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profilim" />
+
+    <item
+        android:id="@+id/notes"
+        android:title="Notlar" />
+
+    <item
+        android:id="@+id/lessons"
+        android:title="Dersler" />
+
+    <item
+        android:id="@+id/messages"
+        android:title="Mesajlar"/>
+
+    <item
+        android:id="@+id/askQue"
+        android:title="Sorunu Sor!" />
+
+    <item
+        android:id="@+id/aboutUs"
+        android:title="Hakkımızda" />
+
+    <item
+        android:id="@+id/signOut"
+        android:title="Çıkış Yap" />
+
+
+</menu>
