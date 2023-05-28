@@ -80,7 +80,7 @@ class LoginActivity : AppCompatActivity() {
                 if (document.exists()) {
                     val status = document.getString("status")
                     if (status == "teacher") {
-                        startActivity(Intent(this, TeacherHomeActivity::class.java))
+                        Toast.makeText(this,"Öğretmen Girişi Yasaktır..",Toast.LENGTH_SHORT).show()
                     }
                 }
             }
