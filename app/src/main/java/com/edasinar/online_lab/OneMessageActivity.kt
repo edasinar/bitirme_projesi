@@ -8,19 +8,20 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import com.edasinar.model.MessageInfo
 import com.edasinar.online_lab.databinding.ActivityOneMessageBinding
 import com.google.firebase.auth.FirebaseAuth
-
-/**
- * TODO: öğrenci hem kendi sorusunu görecek hem de öğretmenin mesajını görecek. ayrıca başlığı eklemeyi de unutma
- * */
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class OneMessageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOneMessageBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
     private lateinit var toggle: ActionBarDrawerToggle
 
     private lateinit var messageInfo: MessageInfo
+    private lateinit var label: String
 
     @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +30,11 @@ class OneMessageActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        supportActionBar!!.setTitle("One Message")
+        supportActionBar!!.title = "One Message"
         navListener()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         auth = FirebaseAuth.getInstance()
+        firestore = Firebase.firestore
         toggle = ActionBarDrawerToggle(
             this,
             binding.drawerLayout,
@@ -43,11 +45,45 @@ class OneMessageActivity : AppCompatActivity() {
         toggle.syncState()
 
         messageInfo = intent.getParcelableExtra<MessageInfo>("message")!!
+        label = messageInfo.messageLabel
 
         binding.messageLabelText.text = messageInfo.messageLabel
         binding.questionAreaEditText.setText(messageInfo.messageBody)
 
-        //TODO("ÖĞRETMENİN GÖNDERDİĞİ MESAJI DA BURADA GÖSTERECEKSİN")
+        teacherAnswer {
+            binding.messageAreaEditText.text = it
+        }
+    }
+
+    private fun teacherAnswer(callback: (String) -> Unit) {
+        val currentUserEmail = auth.currentUser?.email.toString()
+        val answerRef = firestore.collection("teacher_message_info")
+        val user = firestore.collection("message_info")
+        val userQuery = user.whereEqualTo("email", currentUserEmail)
+        userQuery.get()
+            .addOnSuccessListener { querySnapshot ->
+                for (document in querySnapshot.documents) {
+                    val docLabel = document.getString("messageLabel")
+                    if(label == docLabel) {
+                        val query = answerRef.whereEqualTo("messageLabel", label)
+                        query.get()
+                            .addOnSuccessListener { querySnap ->
+                                var answerBody = ""
+                                for(doc in querySnap.documents) {
+                                     answerBody = doc.getString("messageBody").toString()
+                                }
+
+                                callback(answerBody)
+                            }
+                            .addOnFailureListener { exception ->
+                                println("Exception: $exception")
+                                callback("")
+                            }
+                    }
+                }
+
+
+            }
     }
 
     private fun navListener() {
