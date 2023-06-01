@@ -70,17 +70,6 @@
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/bildirimler"
-                android:layout_width="400dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:backgroundTint="#ffffff"
-                android:gravity="center_vertical"
-                android:onClick="notificationSetting"
-                android:text="Bildirimler"
-                android:textColor="@color/black" />
-
-            <Button
                 android:id="@+id/sign_out"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"

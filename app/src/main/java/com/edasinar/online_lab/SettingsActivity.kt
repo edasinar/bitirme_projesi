@@ -54,16 +54,6 @@ class SettingsActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.frameLayout, changeSecurityFragment).commit()
     }
 
-
-    fun notificationSetting(view: View) {
-        //TODO: checkbox vardı. ona göre bildirim eklenecek eğer check box işaretliyse bildirim gelecek.
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-
-        val changeNotificationFragment = NotificationFragment()
-        fragmentTransaction.replace(R.id.frameLayout, changeNotificationFragment).commit()
-    }
-
     fun signOut(view: View) {
         auth.signOut()
         val intent = Intent(this, LoginActivity::class.java)

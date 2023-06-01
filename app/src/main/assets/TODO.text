@@ -32,9 +32,6 @@ Profile Fragment
     1. eksik bir şey yok belki ui tasarım geliştirilebilir.
 Photo Fragment
     1. eksik bir şey yok belki ui tasarım geliştirilebilir.
-Notification Fragment
-    1. işaretleyip çıktığında onu orada kaydet. geri geldiğinde işaretleme de siliniyor.
-    2. duruma göre ui tasarım geliştirilebilir.
 Security Fragment
     1. bu kısımda şifre ve eposta değiştirilebilir olacak.
     2. duruma göre ui tasarım geliştirilebilir.
@@ -42,32 +39,7 @@ Security Fragment
 
 
 
-
-
-
-                                    Öğretmen için de bir sistem yapılacak
-Öğretmen Register Ekranı
-    1. ui tasarım
-Öğretmen Dosya Yükleme Ekranı
-    1. genel işlevler
-    2. ui tasarım
-Öğretmene Mesaj Gelen Ekran
-    1. genel işlevler
-    2. ui tasarım
-Öğretmenin Toplu Gösterdiği Mesaj Ekranı
-    1. genel işlevler
-    2. ui tasarım
-Öğretmen Home Ekranı
-    1. genel işlevler
-    2. ui tasarım
-Öğretmenin Cevap Verdiği Ekran
-    1. genel işlevler
-    2. ui tasarım
-
-===> öğretmenin mesajlar ekranı olacak
-===> bu ekranda tüm mesajlar gözükecek tıkladığının detayına gidecek.
-===> detay ekranında öğrencinin maili de gözüksün
-===> detay ekranında cevap ver olacak ona tıkladığında öğrencinin mailini yönlendirsin.
+==> öğretmen ekranları bitti en son tasarımlarla düzelt
 
 
 
