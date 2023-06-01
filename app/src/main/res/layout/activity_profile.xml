@@ -129,28 +129,6 @@
                 android:text="Hesap Ayarları"/>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/settings"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="10dp"
-                android:onClick="settings">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:text="Hesap Güvenliği" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="380dp"
-                    android:text=">" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
                 android:id="@+id/emptyFeatures"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"

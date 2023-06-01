@@ -12,8 +12,6 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
     private lateinit var auth : FirebaseAuth
 
-    //TODO: ayarları değiştirirken yeni activity yerine fragment kullan nasıl kullanıldığına bak
-    //TODO: her ayar için farklı bir fragment olacak
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +24,6 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     fun changePhoto(view: View) {
-        //TODO: galeriden fotoğraf seçecek ya da var olan fotoğrafı silecek
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
 
@@ -35,7 +32,6 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     fun changeProfileFeatures(view: View) {
-        //TODO: isim soyisim ve varsa ek bilgileri değiştirecek
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
 
@@ -43,15 +39,6 @@ class SettingsActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.frameLayout, changeProfileFragment).commit()
 
 
-    }
-
-    fun changeAccountSecurity(view: View) {
-        //TODO: email ve şifreyi değiştirecek
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-
-        val changeSecurityFragment = SecurityFragment()
-        fragmentTransaction.replace(R.id.frameLayout, changeSecurityFragment).commit()
     }
 
     fun signOut(view: View) {
