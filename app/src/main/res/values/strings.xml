@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">online-lab</string>
+    <string name="app_name">online lab students</string>
 
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>

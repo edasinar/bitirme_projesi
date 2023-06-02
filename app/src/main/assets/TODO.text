@@ -30,22 +30,5 @@ Profile Fragment
     1. eksik bir şey yok belki ui tasarım geliştirilebilir.
 Photo Fragment
     1. eksik bir şey yok belki ui tasarım geliştirilebilir.
-Security Fragment
-    1. bu kısımda şifre ve eposta değiştirilebilir olacak.
-    2. duruma göre ui tasarım geliştirilebilir.
-
-
-
 
 ==> öğretmen ekranları bitti en son tasarımlarla düzelt
-
-
-
-
-
-/*                                        GENEL NOTLAR                                            */
-
-
-vakit kalırsa upload file için ayrı bir class oluştur. select file için işlemi o classtan yap...
-
-
