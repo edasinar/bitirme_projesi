@@ -28,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
+        supportActionBar!!.title = "GİRİŞ YAP"
         actionBarColor()
         auth = FirebaseAuth.getInstance()
         firestore = Firebase.firestore

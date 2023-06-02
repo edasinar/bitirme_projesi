@@ -1,9 +1,13 @@
 package com.edasinar.online_lab
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.edasinar.online_lab.databinding.ActivityAboutUsBinding
@@ -23,8 +27,8 @@ class AboutUsActivity : AppCompatActivity() {
         val view: View = binding.root
         setContentView(view)
 
-        supportActionBar!!.title = ""
-
+        supportActionBar!!.title = "HAKKIMIZDA"
+        actionBarColor()
         navListener()
 
         fillTextViews()
@@ -42,8 +46,17 @@ class AboutUsActivity : AppCompatActivity() {
         toggle.syncState()
     }
 
+    private fun actionBarColor() {
+        val actionBar: ActionBar? = supportActionBar
+        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        actionBar?.setBackgroundDrawable(colorDrawable)
+    }
+
+    @SuppressLint("SetTextI18n")
     private fun fillTextViews() {
-        binding.hakkimizda.text = "Adalete ve eşitliğe adanmış bir eğitim platformuyuz. Amacımız, her çocuğun, gençin ve yetişkinin eşit ve adil bir şekilde kaliteli eğitim imkanlarından yararlanmasını sağlamaktır. Farkındayız ki, eğitimde fırsat eşitsizliği toplumlarımızı derinden etkileyen bir sorundur. Bu nedenle, sponsor öğretmenlerimizle birlikte hareket ederek, eğitimdeki bu adaletsizliği gidermek için çaba harcıyoruz.\n" +
+        binding.hakkimizda.text = "HAKKIMIZDA" +
+                "\n"+
+                "Adalete ve eşitliğe adanmış bir eğitim platformuyuz. Amacımız, her çocuğun, gençin ve yetişkinin eşit ve adil bir şekilde kaliteli eğitim imkanlarından yararlanmasını sağlamaktır. Farkındayız ki, eğitimde fırsat eşitsizliği toplumlarımızı derinden etkileyen bir sorundur. Bu nedenle, sponsor öğretmenlerimizle birlikte hareket ederek, eğitimdeki bu adaletsizliği gidermek için çaba harcıyoruz.\n" +
                 "\n" +
                 "Projemiz, sponsor öğretmenlerin cömert katkılarına dayanmaktadır. Bu öğretmenler, kendi bilgi, deneyim ve enerjilerini paylaşarak, öğrencilerin gelecekteki başarıları için güçlü bir temel oluşturmayı amaçlamaktadır. Onların desteğiyle, eğitim kaynaklarını ve ders videolarını ücretsiz olarak sunarak, her öğrencinin potansiyelini gerçekleştirmesine yardımcı olmayı hedefliyoruz.\n" +
                 "\n" +
@@ -51,9 +64,13 @@ class AboutUsActivity : AppCompatActivity() {
                 "\n" +
                 "Hep birlikte, bu projenin büyümesini ve genişlemesini sağlayarak, gelecekte daha da fazla öğrenciye ulaşmayı ve onlara eşit bir eğitim fırsatı sunmayı hedefliyoruz. Eğitimdeki bu dönüşümün, toplumumuzdaki eşitsizlikleri azaltacağına, bireylerin hayallerini gerçekleştireceğine ve birlikte daha adil bir dünya inşa edeceğimize inanıyoruz."
 
-        binding.vizyon.text = "Vizyonumuz, eğitimde fırsat eşitsizliğini gidermektir. İnanıyoruz ki her öğrencinin kaliteli bir eğitime erişimi olmalıdır, çünkü eğitim, bireylerin potansiyellerini keşfetmelerine ve toplumlarına değer katmalarına olanak sağlar. Sponsor öğretmenlerimizle birlikte, kaynaklara erişim konusunda yaşanan eşitsizlikleri ortadan kaldırarak, tüm öğrencilerin eşit şekilde yararlanabileceği bir öğrenme ortamı oluşturmayı hedefliyoruz."
+        binding.vizyon.text = "VİZYONUMUZ" +
+                "\n" +
+                "Vizyonumuz, eğitimde fırsat eşitsizliğini gidermektir. İnanıyoruz ki her öğrencinin kaliteli bir eğitime erişimi olmalıdır, çünkü eğitim, bireylerin potansiyellerini keşfetmelerine ve toplumlarına değer katmalarına olanak sağlar. Sponsor öğretmenlerimizle birlikte, kaynaklara erişim konusunda yaşanan eşitsizlikleri ortadan kaldırarak, tüm öğrencilerin eşit şekilde yararlanabileceği bir öğrenme ortamı oluşturmayı hedefliyoruz."
 
-        binding.misyon.text ="Misyonumuz, sponsor öğretmenlerin desteğiyle ücretsiz ve yüksek kaliteli eğitim kaynaklarına erişimi olmayan öğrencilere destek sağlamaktır. Öğretmenlerimiz, gönüllü olarak bu projeye katılarak belli bir ücret talep etmeksizin, bilgi ve deneyimlerini paylaşacaklardır. Sistemimize yükledikleri ders videoları ve kaynaklar, öğrencilerin herhangi bir mali yükü olmadan bu değerli kaynaklardan yararlanmalarını sağlayacaktır."
+        binding.misyon.text ="MİSYONUMUZ" +
+                "\n" +
+                "Misyonumuz, sponsor öğretmenlerin desteğiyle ücretsiz ve yüksek kaliteli eğitim kaynaklarına erişimi olmayan öğrencilere destek sağlamaktır. Öğretmenlerimiz, gönüllü olarak bu projeye katılarak belli bir ücret talep etmeksizin, bilgi ve deneyimlerini paylaşacaklardır. Sistemimize yükledikleri ders videoları ve kaynaklar, öğrencilerin herhangi bir mali yükü olmadan bu değerli kaynaklardan yararlanmalarını sağlayacaktır."
 
         ///dkdlsdkldldl
     }
