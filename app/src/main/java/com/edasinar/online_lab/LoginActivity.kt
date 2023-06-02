@@ -1,9 +1,12 @@
 package com.edasinar.online_lab
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.edasinar.online_lab.databinding.ActivityLoginBinding
 import com.google.android.gms.tasks.Task
@@ -12,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -24,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
+        actionBarColor()
         auth = FirebaseAuth.getInstance()
         firestore = Firebase.firestore
         val user = auth.currentUser
@@ -32,6 +37,12 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun actionBarColor() {
+        val actionBar: ActionBar? = supportActionBar
+        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        actionBar?.setBackgroundDrawable(colorDrawable)
     }
 
     fun register(view: View?) {
