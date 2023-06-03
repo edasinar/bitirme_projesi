@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
+    android:background="@color/activity_background"
     tools:ignore="SpeakableTextPresentCheck">
 
     <ScrollView
@@ -45,17 +46,20 @@
 
             <TextView
                 android:id="@+id/label3"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_label"
                 android:text="Özellikler"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/lessonCardView"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:backgroundTint="@color/card_background"
                 android:layout_marginTop="10dp"
                 android:onClick="goToLesson">
 
@@ -64,28 +68,34 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Dersler" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="380dp"
                     android:text=">" />
 
             </androidx.cardview.widget.CardView>
 
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/notesCardView"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:backgroundTint="@color/card_background"
                 android:layout_marginTop="10dp"
                 android:onClick="goToNotes">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:text="Notlar" />
@@ -94,6 +104,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_marginStart="380dp"
                     android:text=">" />
             </androidx.cardview.widget.CardView>
@@ -102,11 +114,14 @@
                 android:id="@+id/messagesCardView"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:backgroundTint="@color/card_background"
                 android:layout_marginTop="10dp"
                 android:onClick="goToMessages">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:text="Mesajlar" />
@@ -114,6 +129,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="380dp"
                     android:text=">" />
@@ -125,19 +142,24 @@
                 android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_label"
                 android:text="Hesap Ayarları"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/emptyFeatures"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:backgroundTint="@color/card_background"
                 android:layout_marginTop="10dp"
                 android:onClick="settings">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:text="Diğer Ayarlar" />
@@ -145,6 +167,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="380dp"
                     android:text=">" />
@@ -156,19 +180,24 @@
                 android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_label"
                 android:text="Yardım ve Destek"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/aboutus"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:backgroundTint="@color/card_background"
                 android:layout_marginTop="10dp"
                 android:onClick="aboutUs">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:text="Online Lab Hakkında" />
@@ -176,6 +205,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="380dp"
                     android:text=">" />
@@ -185,12 +216,14 @@
                 android:id="@+id/frequentlyQuestions"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                >
+                android:backgroundTint="@color/card_background"
+                android:layout_height="30dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_gravity="center_vertical"
                     android:text="Sık Sorulan Sorular" />
 
@@ -198,6 +231,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="380dp"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_gravity="center_vertical"
                     android:text=">" />
             </androidx.cardview.widget.CardView>
@@ -206,12 +241,15 @@
                 android:id="@+id/shareUs"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/card_background"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_marginStart="10dp"
                     android:layout_gravity="center_vertical"
                     android:text="Online Lab'ı Paylaşın" />
@@ -219,6 +257,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:layout_marginStart="380dp"
                     android:layout_gravity="center_vertical"
                     android:text=">" />

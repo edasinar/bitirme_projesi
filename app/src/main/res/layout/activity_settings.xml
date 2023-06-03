@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/activity_background"
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
@@ -32,7 +33,8 @@
                 android:layout_height = "wrap_content"
                 android:textSize = "35sp"
                 android:layout_marginStart = "5dp"
-                android:textColor = "@color/black"
+                android:textStyle="bold"
+                android:textColor = "@color/text_label"
                 android:text = "Hesap ve Diğer ayarlar"/>
 
             <Button
@@ -40,34 +42,34 @@
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:backgroundTint="#ffffff"
+                android:layout_marginTop="55dp"
+                android:backgroundTint="@color/button_color"
                 android:gravity="center_vertical"
                 android:onClick="changeProfileFeatures"
                 android:text="Profil"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/changePhoto"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="#ffffff"
+                android:backgroundTint="@color/button_color"
                 android:gravity="center_vertical"
                 android:onClick="changePhoto"
                 android:text="Fotoğraf"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/sign_out"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="#ffffff"
+                android:backgroundTint="@color/button_color"
                 android:gravity="center_vertical"
                 android:onClick="signOut"
                 android:text="Çıkış Yap"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
             <FrameLayout
                 android:id="@+id/frameLayout"

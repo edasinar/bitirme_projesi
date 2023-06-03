@@ -14,7 +14,7 @@
         android:textSize="30sp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:textColor="@color/eda123"
+        android:textColor="@color/text_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -93,10 +93,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginBottom="265dp"
-        android:backgroundTint="@color/eda123"
+        android:backgroundTint="@color/button_color"
         android:onClick="register"
         android:text="Üye Ol"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -106,10 +106,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="265dp"
-        android:backgroundTint="@color/eda123"
+        android:backgroundTint="@color/button_color"
         android:onClick="login"
         android:text="Giriş Yap"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

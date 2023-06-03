@@ -28,7 +28,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="28dp"
                 android:text="SORU BAŞLIĞI"
-                android:textColor="@color/eda123"
+                android:textColor="@color/text_label"
                 android:textSize="30dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -39,6 +39,7 @@
                 android:text="SORU:"
                 android:textSize="25dp"
                 android:layout_marginTop="20dp"
+                android:textColor="@color/black"
                 android:layout_marginStart="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +69,7 @@
                 android:text="CEVAP:"
                 android:textSize="25dp"
                 android:layout_marginStart="16dp"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
