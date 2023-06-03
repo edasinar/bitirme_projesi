@@ -5,63 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
+    android:background="@color/activity_bacground"
     tools:context=".AskQuestionActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/selectFileButton"
-            android:layout_width="316dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="44dp"
-            android:layout_marginTop="432dp"
-            android:onClick="selectFileFromPhone"
-            android:text="Dosya Seçin"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/gönderButton"
-            android:layout_width="311dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="26dp"
-            android:text="Gönder"
-            android:onClick="sendMessage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.42"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/selectFileButton" />
 
         <Spinner
             android:id="@+id/spinner"
-            style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
-            android:layout_width="300dp"
+            android:layout_width="310dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/custom_spinner"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.477"
+            app:layout_constraintHorizontal_bias="0.396"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-        <EditText
-            android:id="@+id/questionBodyEditText"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bodyInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="228dp"
-            android:layout_marginEnd="59dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="mesajınızı yazın..."
-            android:inputType="textMultiLine"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="208dp"
+            app:helperText="Gerekli*"
+            app:helperTextTextColor="#a50000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/questionBodyEditText"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_marginEnd="59dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="mesajınızı yazın..."
+                android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/fileNameTextView"
@@ -71,22 +63,64 @@
             android:text="eklemek istediğiniz dosyayı seçin"
             app:layout_constraintBottom_toTopOf="@+id/selectFileButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.384"
+            app:layout_constraintHorizontal_bias="0.423"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/questionBodyEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/bodyInputLayout"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <EditText
-            android:id="@+id/questionLabelEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="152dp"
-            android:ems="10"
-            android:hint="Soru Başlığı"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
+        <Button
+            android:id="@+id/gönderButton"
+            android:layout_width="316dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/eda123"
+            android:onClick="sendMessage"
+            android:text="Gönder"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.421"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/selectFileButton" />
+
+        <Button
+            android:id="@+id/selectFileButton"
+            android:layout_width="316dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="80dp"
+            android:backgroundTint="@color/eda123"
+            android:onClick="selectFileFromPhone"
+            android:text="Dosya Seçin"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bodyInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/messageLabelInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="112dp"
+            app:helperText="Gerekli*"
+            app:helperTextTextColor="#a50000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/questionLabelEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="152dp"
+                android:ems="10"
+                android:hint="Soru Başlığı"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -3,6 +3,8 @@ package com.edasinar.online_lab
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
@@ -11,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -18,7 +21,6 @@ import androidx.core.content.ContextCompat
 import com.edasinar.model.MessageInfo
 import com.edasinar.model.Teachers
 import com.edasinar.online_lab.databinding.ActivityAskQuestionBinding
-import com.google.api.HttpBody
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -47,7 +49,8 @@ class AskQuestionActivity : AppCompatActivity() {
         binding = ActivityAskQuestionBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
-        supportActionBar!!.title = "Sorunu Sor"
+        supportActionBar!!.title = "SORUNU SOR"
+        actionBarColor()
         navListener()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         auth = FirebaseAuth.getInstance()
@@ -62,6 +65,12 @@ class AskQuestionActivity : AppCompatActivity() {
         )
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+    }
+
+    private fun actionBarColor() {
+        val actionBar: ActionBar? = supportActionBar
+        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        actionBar?.setBackgroundDrawable(colorDrawable)
     }
 
     @Deprecated("Deprecated in Java")
