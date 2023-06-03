@@ -37,6 +37,8 @@
             android:exported="false" />
         <activity
             android:name=".OneLessonActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".NotesActivity"

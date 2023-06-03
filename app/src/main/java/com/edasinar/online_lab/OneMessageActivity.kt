@@ -1,9 +1,12 @@
 package com.edasinar.online_lab
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.edasinar.model.MessageInfo
 import com.edasinar.online_lab.databinding.ActivityOneMessageBinding
@@ -30,8 +33,9 @@ class OneMessageActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        supportActionBar!!.title = "One Message"
+        supportActionBar!!.title = "MESAJLARIM"
         navListener()
+        actionBarColor()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         auth = FirebaseAuth.getInstance()
         firestore = Firebase.firestore
@@ -43,16 +47,21 @@ class OneMessageActivity : AppCompatActivity() {
         )
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
         messageInfo = intent.getParcelableExtra<MessageInfo>("message")!!
         label = messageInfo.messageLabel
 
         binding.messageLabelText.text = messageInfo.messageLabel
-        binding.questionAreaEditText.setText(messageInfo.messageBody)
+        binding.questionAreaEditText.text = messageInfo.messageBody
 
         teacherAnswer {
             binding.messageAreaEditText.text = it
         }
+    }
+
+    private fun actionBarColor() {
+        val actionBar: ActionBar? = supportActionBar
+        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        actionBar?.setBackgroundDrawable(colorDrawable)
     }
 
     private fun teacherAnswer(callback: (String) -> Unit) {

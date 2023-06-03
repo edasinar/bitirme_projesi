@@ -1,11 +1,18 @@
 package com.edasinar.online_lab
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import android.widget.MediaController
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.edasinar.online_lab.databinding.ActivityOneLessonBinding
@@ -26,7 +33,9 @@ class OneLessonActivity : AppCompatActivity() {
         val view: View = binding.root
         setContentView(view)
         supportActionBar!!.title = "One Lesson"
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
         navListener()
+        actionBarColor()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         auth = FirebaseAuth.getInstance()
         toggle = ActionBarDrawerToggle(
@@ -41,8 +50,25 @@ class OneLessonActivity : AppCompatActivity() {
         val videoUrl = intent.getStringExtra("url")
         if (videoUrl != null) {
             playVideo(videoUrl)
+
         }
 
+    }
+
+    private fun actionBarColor() {
+        val actionBar: ActionBar? = supportActionBar
+        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        actionBar?.setBackgroundDrawable(colorDrawable)
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            supportActionBar?.hide()
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            supportActionBar?.show()
+        }
     }
 
     private fun playVideo(videoUrl: String) {
@@ -52,7 +78,24 @@ class OneLessonActivity : AppCompatActivity() {
         videoView.setMediaController(mediaController)
         videoView.setVideoURI(Uri.parse(videoUrl))
         videoView.start()
+        videoView.setOnPreparedListener { mediaPlayer ->
+            mediaPlayer.setOnVideoSizeChangedListener { mp, width, height ->
+                videoView.pause()
+                val videoRatio = width.toFloat() / height.toFloat()
+                val screenRatio = videoView.width.toFloat() / videoView.height.toFloat()
+                val scaleX = videoRatio / screenRatio
+
+                if (scaleX >= 1f) {
+                    videoView.scaleX = scaleX
+                } else {
+                    videoView.scaleY = 1f / scaleX
+                }
+                videoView.start()
+            }
+        }
     }
+
+
 
     private fun navListener() {
         binding.navView.setNavigationItemSelectedListener { item ->

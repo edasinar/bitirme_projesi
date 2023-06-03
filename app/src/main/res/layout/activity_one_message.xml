@@ -5,52 +5,95 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
+    android:background="@color/activity_background"
     tools:context=".OneMessageActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/messageAreaEditText"
-            android:layout_width="367dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="216dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="öğretmenden gelen mesaj..."
-            android:textSize="20sp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/questionAreaEditText"
-            android:layout_width="367dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="132dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="sizin gönderdiğiniz soru..."
-            android:inputType="textMultiLine"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            <TextView
+                android:id="@+id/messageLabelText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:text="SORU BAŞLIĞI"
+                android:textColor="@color/eda123"
+                android:textSize="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/messageLabelText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SORU BAŞLIĞI"
-            android:textSize="30dp"
-            android:textColor="@color/black"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SORU:"
+                android:textSize="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/questionAreaEditText"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="367dp"
+                android:paddingStart="6dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="sizin gönderdiğiniz soru..."
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="CEVAP:"
+                android:textSize="25dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/messageAreaEditText"
+                android:layout_width="367dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border"
+                android:paddingStart="6dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="öğretmenden gelen mesaj..."
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
