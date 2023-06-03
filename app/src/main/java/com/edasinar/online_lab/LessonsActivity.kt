@@ -36,6 +36,10 @@ class LessonsActivity : AppCompatActivity() {
         firestore = Firebase.firestore
         auth = Firebase.auth
 
+        navListener()
+        actionBarColor()
+        setToggle()
+
         getValueFromDB { nameOfDocs ->
 
             val lessonList = nameOfDocs.map { it } as ArrayList<Lessons>
@@ -45,9 +49,11 @@ class LessonsActivity : AppCompatActivity() {
             binding.recyclerView.adapter = adapter
         }
 
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = "DERS VİDEOLARI"
-        navListener()
-        actionBarColor()
+    }
+
+    private fun setToggle() {
         toggle = ActionBarDrawerToggle(
             this@LessonsActivity,
             binding.drawerLayout,
@@ -56,12 +62,11 @@ class LessonsActivity : AppCompatActivity() {
         )
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun actionBarColor() {
         val actionBar: ActionBar? = supportActionBar
-        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
         actionBar?.setBackgroundDrawable(colorDrawable)
     }
 

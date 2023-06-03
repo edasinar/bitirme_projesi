@@ -3,6 +3,8 @@ package com.edasinar.online_lab
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.pdf.PdfRenderer
 import android.net.Uri
 import android.os.Bundle
@@ -10,11 +12,13 @@ import android.os.ParcelFileDescriptor
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.edasinar.online_lab.databinding.ActivityOneNoteBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
@@ -37,13 +41,26 @@ class OneNoteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOneNoteBinding.inflate(layoutInflater)
-        val view: View = binding.getRoot()
+        val view: View = binding.root
         setContentView(view)
-        supportActionBar!!.setTitle("One Note")
-        navListener()
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        auth = FirebaseAuth.getInstance()
+
+        auth = Firebase.auth
         storage = Firebase.storage
+
+        navListener()
+        setToggle()
+        actionBarColor()
+
+        val pdfUrl = intent.getStringExtra("url")
+        if (pdfUrl != null) {
+            pdfViewer(pdfUrl)
+        }
+
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = "NOTLARIM"
+    }
+
+    private fun setToggle() {
         toggle = ActionBarDrawerToggle(
             this@OneNoteActivity,
             binding.drawerLayout,
@@ -52,13 +69,13 @@ class OneNoteActivity : AppCompatActivity() {
         )
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
-        val pdfUrl = intent.getStringExtra("url")
-        if (pdfUrl != null) {
-            pdfViewer(pdfUrl)
-        }
     }
 
+    private fun actionBarColor() {
+        val actionBar: ActionBar? = supportActionBar
+        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
+        actionBar?.setBackgroundDrawable(colorDrawable)
+    }
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun pdfViewer(url: String) {

@@ -22,6 +22,7 @@ import com.edasinar.model.MessageInfo
 import com.edasinar.model.Teachers
 import com.edasinar.online_lab.databinding.ActivityAskQuestionBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -49,14 +50,22 @@ class AskQuestionActivity : AppCompatActivity() {
         binding = ActivityAskQuestionBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
-        supportActionBar!!.title = "SORUNU SOR"
-        actionBarColor()
-        navListener()
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        auth = FirebaseAuth.getInstance()
+
+        auth = Firebase.auth
         firestore = Firebase.firestore
         storage = Firebase.storage
+
+        actionBarColor()
+        navListener()
+        setToggle()
         spinner()
+
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = "SORUNU SOR"
+
+    }
+
+    private fun setToggle() {
         toggle = ActionBarDrawerToggle(
             this@AskQuestionActivity,
             binding.drawerLayout,
@@ -69,7 +78,7 @@ class AskQuestionActivity : AppCompatActivity() {
 
     private fun actionBarColor() {
         val actionBar: ActionBar? = supportActionBar
-        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
         actionBar?.setBackgroundDrawable(colorDrawable)
     }
 

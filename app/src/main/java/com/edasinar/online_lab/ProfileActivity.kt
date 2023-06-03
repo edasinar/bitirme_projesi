@@ -2,12 +2,15 @@ package com.edasinar.online_lab
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.edasinar.online_lab.databinding.ActivityProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -36,18 +39,31 @@ class ProfileActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         firestore = Firebase.firestore
+
+        setToggle()
+        actionBarColor()
+        navListener()
+        getDataFromFirebase()
+
+        supportActionBar!!.title = "PROFİLİM"
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun setToggle() {
         toggle = ActionBarDrawerToggle(
-            this,
+            this@ProfileActivity,
             binding.drawerLayout,
             R.string.open,
             R.string.close
         )
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        getDataFromFirebase()
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+    }
 
-        navListener()
+    private fun actionBarColor() {
+        val actionBar: ActionBar? = supportActionBar
+        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
+        actionBar?.setBackgroundDrawable(colorDrawable)
     }
 
     @SuppressLint("SetTextI18n")

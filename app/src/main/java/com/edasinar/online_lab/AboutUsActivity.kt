@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.edasinar.online_lab.databinding.ActivityAboutUsBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class AboutUsActivity : AppCompatActivity() {
 
@@ -27,15 +29,18 @@ class AboutUsActivity : AppCompatActivity() {
         val view: View = binding.root
         setContentView(view)
 
-        supportActionBar!!.title = "HAKKIMIZDA"
+        auth = Firebase.auth
+
         actionBarColor()
         navListener()
-
+        setToggle()
         fillTextViews()
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = "HAKKIMIZDA"
+    }
 
-        auth = FirebaseAuth.getInstance()
+    private fun setToggle() {
         toggle = ActionBarDrawerToggle(
             this@AboutUsActivity,
             binding.drawerLayout,
@@ -48,7 +53,7 @@ class AboutUsActivity : AppCompatActivity() {
 
     private fun actionBarColor() {
         val actionBar: ActionBar? = supportActionBar
-        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
         actionBar?.setBackgroundDrawable(colorDrawable)
     }
 

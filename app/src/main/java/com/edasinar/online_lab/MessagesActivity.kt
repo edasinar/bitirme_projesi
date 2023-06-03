@@ -35,6 +35,10 @@ class MessagesActivity : AppCompatActivity() {
         auth = Firebase.auth
         firestore = Firebase.firestore
 
+        navListener()
+        actionBarColor()
+        setToggle()
+
         getCurrentUserMessagesFromFirestore { messageInfoList ->
             val adapter = MessagesAdapter(messageInfoList)
             val layoutManager = GridLayoutManager(this, 2)
@@ -42,23 +46,24 @@ class MessagesActivity : AppCompatActivity() {
             binding.recyclerView.adapter = adapter
         }
 
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = "MESAJLARIM"
-        navListener()
-        actionBarColor()
+    }
+
+    private fun setToggle() {
         toggle = ActionBarDrawerToggle(
-            this,
+            this@MessagesActivity,
             binding.drawerLayout,
             R.string.open,
             R.string.close
         )
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun actionBarColor() {
         val actionBar: ActionBar? = supportActionBar
-        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
         actionBar?.setBackgroundDrawable(colorDrawable)
     }
 

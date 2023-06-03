@@ -12,6 +12,7 @@ import com.edasinar.online_lab.databinding.ActivityLoginBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -28,21 +29,25 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
-        supportActionBar!!.title = "GİRİŞ YAP"
-        actionBarColor()
-        auth = FirebaseAuth.getInstance()
+
+        auth = Firebase.auth
         firestore = Firebase.firestore
+
+        actionBarColor()
+
         val user = auth.currentUser
         if (user != null) {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
+
+        supportActionBar!!.title = "GİRİŞ YAP"
     }
 
     private fun actionBarColor() {
         val actionBar: ActionBar? = supportActionBar
-        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
         actionBar?.setBackgroundDrawable(colorDrawable)
     }
 

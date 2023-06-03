@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.edasinar.online_lab.databinding.ActivityOneLessonBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 // TODO: VİDEO TASARIMI OLACAK EKRANI YAN YATIRMA BÜYÜTME GİBİ
 
@@ -32,12 +34,25 @@ class OneLessonActivity : AppCompatActivity() {
         binding = ActivityOneLessonBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
-        supportActionBar!!.title = "One Lesson"
+
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
         navListener()
         actionBarColor()
+        setToggle()
+
+        auth = Firebase.auth
+
+        val videoUrl = intent.getStringExtra("url")
+        if (videoUrl != null) {
+            playVideo(videoUrl)
+        }
+
+        supportActionBar!!.title = "DERS VİDEOSU"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        auth = FirebaseAuth.getInstance()
+
+    }
+
+    private fun setToggle() {
         toggle = ActionBarDrawerToggle(
             this@OneLessonActivity,
             binding.drawerLayout,
@@ -46,18 +61,11 @@ class OneLessonActivity : AppCompatActivity() {
         )
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
-        val videoUrl = intent.getStringExtra("url")
-        if (videoUrl != null) {
-            playVideo(videoUrl)
-
-        }
-
     }
 
     private fun actionBarColor() {
         val actionBar: ActionBar? = supportActionBar
-        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
         actionBar?.setBackgroundDrawable(colorDrawable)
     }
 

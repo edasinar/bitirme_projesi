@@ -37,6 +37,10 @@ class NotesActivity : AppCompatActivity() {
         auth = Firebase.auth
         firestore = Firebase.firestore
 
+        setToggle()
+        navListener()
+        actionBarColor()
+
         getValueFromDB { nameOfDocs ->
             val notesList = nameOfDocs.map { it } as ArrayList<Notes>
             val adapter = NotesAdapter(notesList)
@@ -44,10 +48,13 @@ class NotesActivity : AppCompatActivity() {
             binding.recyclerView.layoutManager = layoutManager
             binding.recyclerView.adapter = adapter
         }
-        supportActionBar!!.title = "NOTLAR"
-        navListener()
-        actionBarColor()
+
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = "NOTLARIM"
+
+    }
+
+    private fun setToggle() {
         toggle = ActionBarDrawerToggle(
             this@NotesActivity,
             binding.drawerLayout,
@@ -60,7 +67,7 @@ class NotesActivity : AppCompatActivity() {
 
     private fun actionBarColor() {
         val actionBar: ActionBar? = supportActionBar
-        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
         actionBar?.setBackgroundDrawable(colorDrawable)
     }
 

@@ -1,9 +1,12 @@
 package com.edasinar.online_lab
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -31,6 +34,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         auth = FirebaseAuth.getInstance()
+
+        navListener()
+        actionBarColor()
+        setToggle()
+
+        val menuNames = ArrayList(Arrays.asList("Notlar", "Mesajlar", "Dersler"))
+
+        binding.recViewMain.layoutManager = LinearLayoutManager(this)
+        val adapter = MainAdapter(menuNames)
+        binding.recViewMain.adapter = adapter
+
+        supportActionBar!!.title = "GİRİŞ SAYFASI"
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun setToggle() {
         toggle = ActionBarDrawerToggle(
             this@MainActivity,
             binding.drawerLayout,
@@ -39,16 +58,12 @@ class MainActivity : AppCompatActivity() {
         )
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+    }
 
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
-        navListener()
-
-        val menuNames = ArrayList(Arrays.asList("Notlar", "Mesajlar", "Dersler"))
-
-        binding.recViewMain.layoutManager = LinearLayoutManager(this)
-        val adapter = MainAdapter(menuNames)
-        binding.recViewMain.adapter = adapter
+    private fun actionBarColor() {
+        val actionBar: ActionBar? = supportActionBar
+        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
+        actionBar?.setBackgroundDrawable(colorDrawable)
     }
 
     private fun navListener() {

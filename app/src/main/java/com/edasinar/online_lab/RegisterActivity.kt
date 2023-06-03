@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.edasinar.model.Users
 import com.edasinar.online_lab.databinding.ActivityRegisterBinding
@@ -30,15 +31,17 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        actionBarColor()
-        supportActionBar!!.title = "ARAMIZA KATILIN"
+
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
-    }
 
+        actionBarColor()
+
+        supportActionBar!!.title = "ARAMIZA KATILIN"
+    }
     private fun actionBarColor() {
         val actionBar: ActionBar? = supportActionBar
-        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
         actionBar?.setBackgroundDrawable(colorDrawable)
     }
 
