@@ -68,7 +68,7 @@ class OneMessageActivity : AppCompatActivity() {
 
     private fun actionBarColor() {
         val actionBar: ActionBar? = supportActionBar
-        val colorDrawable = ColorDrawable(Color.parseColor("#E8E8E8"))
+        val colorDrawable = ColorDrawable(Color.parseColor("#000066"))
         actionBar?.setBackgroundDrawable(colorDrawable)
     }
 
