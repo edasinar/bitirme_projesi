@@ -1,9 +1,12 @@
 package com.edasinar.online_lab
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -28,7 +31,7 @@ class NotesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNotesBinding.inflate(layoutInflater)
-        val view: View = binding.getRoot()
+        val view: View = binding.root
         setContentView(view)
 
         auth = Firebase.auth
@@ -38,13 +41,13 @@ class NotesActivity : AppCompatActivity() {
             val notesList = nameOfDocs.map { it } as ArrayList<Notes>
             val adapter = NotesAdapter(notesList)
             val layoutManager = GridLayoutManager(this, 2)
-            binding.recyclerView.setLayoutManager(layoutManager)
-            binding.recyclerView.setAdapter(adapter)
+            binding.recyclerView.layoutManager = layoutManager
+            binding.recyclerView.adapter = adapter
         }
-        supportActionBar!!.setTitle("")
+        supportActionBar!!.title = "NOTLAR"
         navListener()
+        actionBarColor()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
         toggle = ActionBarDrawerToggle(
             this@NotesActivity,
             binding.drawerLayout,
@@ -53,6 +56,12 @@ class NotesActivity : AppCompatActivity() {
         )
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+    }
+
+    private fun actionBarColor() {
+        val actionBar: ActionBar? = supportActionBar
+        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        actionBar?.setBackgroundDrawable(colorDrawable)
     }
 
     private fun navListener() {

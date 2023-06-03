@@ -1,9 +1,12 @@
 package com.edasinar.online_lab
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.edasinar.model.MessageInfo
@@ -39,9 +42,9 @@ class MessagesActivity : AppCompatActivity() {
             binding.recyclerView.adapter = adapter
         }
 
-        supportActionBar!!.title = ""
+        supportActionBar!!.title = "MESAJLARIM"
         navListener()
-
+        actionBarColor()
         toggle = ActionBarDrawerToggle(
             this,
             binding.drawerLayout,
@@ -51,6 +54,12 @@ class MessagesActivity : AppCompatActivity() {
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun actionBarColor() {
+        val actionBar: ActionBar? = supportActionBar
+        val colorDrawable = ColorDrawable(Color.parseColor("#EDA123"))
+        actionBar?.setBackgroundDrawable(colorDrawable)
     }
 
     private fun getCurrentUserMessagesFromFirestore(callback: (ArrayList<MessageInfo>) -> Unit) {

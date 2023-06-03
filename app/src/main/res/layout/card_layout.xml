@@ -13,6 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#AAE3B393"
         android:orientation="vertical">
 
         <ImageView
@@ -20,7 +21,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/kimya" />
 
         <TextView
             android:id="@+id/titleName"
