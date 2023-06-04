@@ -6,6 +6,9 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.ScrollView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +30,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth : FirebaseAuth
     private lateinit var toggle : ActionBarDrawerToggle
 
+    private lateinit var scrollView: ScrollView
+    private lateinit var actionBarImage: View
+    private lateinit var rectangleAnimation: Animation
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -34,31 +41,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         auth = FirebaseAuth.getInstance()
-
-        navListener()
+        intents()
         actionBarColor()
-        setToggle()
-
-        val menuNames = ArrayList(Arrays.asList("Notlar", "Mesajlar", "Dersler"))
-
-        binding.recViewMain.layoutManager = LinearLayoutManager(this)
-        val adapter = MainAdapter(menuNames)
-        binding.recViewMain.adapter = adapter
 
         supportActionBar!!.title = "GİRİŞ SAYFASI"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
-    private fun setToggle() {
-        toggle = ActionBarDrawerToggle(
-            this@MainActivity,
-            binding.drawerLayout,
-            R.string.open,
-            R.string.close
-        )
-        binding.drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-    }
 
     private fun actionBarColor() {
         val actionBar: ActionBar? = supportActionBar
@@ -66,50 +55,31 @@ class MainActivity : AppCompatActivity() {
         actionBar?.setBackgroundDrawable(colorDrawable)
     }
 
-    private fun navListener() {
-        binding.navView.setNavigationItemSelectedListener { item ->
-            when(item.itemId) {
-                R.id.signOut -> {
-                    auth.signOut()
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-                R.id.profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.notes -> {
-                    val intent = Intent(this, NotesActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.askQue -> {
-                    val intent = Intent(this, AskQuestionActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.lessons -> {
-                    val intent = Intent(this, LessonsActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.aboutUs -> {
-                    val intent = Intent(this, AboutUsActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.messages -> {
-                    val intent = Intent(this, MessagesActivity::class.java)
-                    startActivity(intent)
-                }
-            }
-
-            true
+    private fun intents() {
+        binding.profileCardView.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+        binding.messageCardView.setOnClickListener {
+            val intent = Intent(this, MessagesActivity::class.java)
+            startActivity(intent)
+        }
+        binding.noteCardView.setOnClickListener {
+            val intent = Intent(this, NotesActivity::class.java)
+            startActivity(intent)
+        }
+        binding.lessonsCardView.setOnClickListener {
+            val intent = Intent(this, LessonsActivity::class.java)
+            startActivity(intent)
+        }
+        binding.askQuestionCardView.setOnClickListener {
+            val intent = Intent(this, AskQuestionActivity::class.java)
+            startActivity(intent)
+        }
+        binding.aboutUsCardView.setOnClickListener {
+            val intent = Intent(this, AboutUsActivity::class.java)
+            startActivity(intent)
         }
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (toggle.onOptionsItemSelected(item)) {
-            true
-        } else super.onOptionsItemSelected(item)
-    }
-
 
 }
