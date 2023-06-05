@@ -11,13 +11,11 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.edasinar.online_lab.databinding.ActivityAboutUsBinding
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class AboutUsActivity : AppCompatActivity() {
-
 
     private lateinit var binding: ActivityAboutUsBinding
     private lateinit var auth: FirebaseAuth

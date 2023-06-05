@@ -20,10 +20,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 
-/**
- * TODO: gerekli bilgileri ilgili viewlerle ilişkilendir.
- * */
-
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityProfileBinding

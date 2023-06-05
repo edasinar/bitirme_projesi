@@ -10,7 +10,6 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.edasinar.model.Lessons
 import com.edasinar.model.Notes
 import com.edasinar.online_lab.databinding.ActivityNotesBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -19,7 +18,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
-
 
 class NotesActivity : AppCompatActivity() {
 

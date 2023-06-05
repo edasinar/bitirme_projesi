@@ -19,7 +19,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlin.collections.ArrayList
 
-
 class LessonsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLessonsBinding

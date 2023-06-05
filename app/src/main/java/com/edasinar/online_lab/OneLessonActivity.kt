@@ -1,6 +1,5 @@
 package com.edasinar.online_lab
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
@@ -9,19 +8,15 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.MotionEvent
 import android.view.View
 import android.widget.MediaController
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.edasinar.online_lab.databinding.ActivityOneLessonBinding
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-
-// TODO: VİDEO TASARIMI OLACAK EKRANI YAN YATIRMA BÜYÜTME GİBİ
 
 class OneLessonActivity : AppCompatActivity() {
 
