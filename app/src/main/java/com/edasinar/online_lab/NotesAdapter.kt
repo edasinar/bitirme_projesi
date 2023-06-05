@@ -1,6 +1,7 @@
 package com.edasinar.online_lab
 
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,8 +20,9 @@ class NotesAdapter(private val notesList: ArrayList<Notes>): RecyclerView.Adapte
     override fun onBindViewHolder(holder: NotesAdapter.NotesViewHolder, position: Int) {
         holder.binding.titleName.text = notesList[position].fileName
         val clickListener = View.OnClickListener {
-            val intent = Intent(holder.itemView.context, OneLessonActivity::class.java)
-            intent.putExtra("url",notesList[position].url)
+
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(notesList[position].url)
             holder.itemView.context.startActivity(intent)
         }
         holder.binding.mainCardView.setOnClickListener(clickListener)
