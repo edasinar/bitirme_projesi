@@ -95,9 +95,12 @@ class AskQuestionActivity : AppCompatActivity() {
             val fileRef = ref.child("messageFile").child("$fileName")
 
             fileRef.putFile(fileUri).addOnSuccessListener {
-                downloadUrl = fileRef.downloadUrl.toString()
+                val uploadFileRef = storage.reference.child("messageFile").child("$fileName")
+                uploadFileRef.downloadUrl.addOnSuccessListener {
+                    downloadUrl = it.toString()
+                }
             }.addOnFailureListener {
-                Toast.makeText(this,"dosya yüklenemedi hata....", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"dosya storage yüklenemedi hata....", Toast.LENGTH_SHORT).show()
             }
 
         }
