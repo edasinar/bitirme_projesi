@@ -38,6 +38,15 @@ class RegisterActivity : AppCompatActivity() {
 
         supportActionBar!!.title = "ARAMIZA KATILIN"
     }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish() // İsteğe bağlı olarak, mevcut aktiviteyi sonlandırabilirsiniz
+        super.onBackPressed()
+    }
+
+
     private fun actionBarColor() {
         val actionBar: ActionBar? = supportActionBar
         val colorDrawable = ColorDrawable(Color.parseColor("#000066"))
